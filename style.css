@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  font-family: 'Inter', sans-serif;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #0b4942 0%,
+      #06352f 35%,
+      #021c1b 70%,
+      #010909 100%
+    );
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+  position: fixed;
+
+  top: 7%;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+
+.mini-title {
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  opacity: .65;
+
+  margin-bottom: 20px;
+}
+
+
+.header h1 {
+
+  font-size: 15px;
+
+  letter-spacing: 8px;
+
+  font-weight: 400;
+}
+
+
+.header p {
+
+  margin-top: 8px;
+
+  font-size: 6px;
+
+  letter-spacing: 3px;
+
+  opacity: .4;
+}
+
+
+/* =====================================================
+   3D SCENE
+===================================================== */
+
+.scene {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  perspective: 1400px;
+}
+
+
+.gallery {
+
+  position: relative;
+
+  width: 520px;
+
+  height: 520px;
+
+  transform-style: preserve-3d;
+
+  will-change: transform;
+
+  transition:
+    transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+
+/* =====================================================
+   PHOTO CARD
+===================================================== */
+
+.card {
+
+  position: absolute;
+
+  width: 125px;
+
+  height: 165px;
+
+  padding: 5px;
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+
+  background: rgba(255,255,255,.09);
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.5),
+    0 0 30px rgba(100,255,230,.08);
+
+  transition:
+    transform .8s cubic-bezier(.2,.8,.2,1),
+    opacity .5s ease,
+    filter .5s ease;
+
+  overflow: hidden;
+
+  will-change: transform;
+}
+
+
+.card img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  transition:
+    transform .6s ease,
+    filter .5s ease;
+}
+
+
+.card:hover img {
+
+  transform: scale(1.07);
+
+  filter: brightness(1.12);
+}
+
+
+.card:hover {
+
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.65),
+    0 0 35px rgba(120,255,230,.18);
+}
+
+
+/* =====================================================
+   CARD POSITIONS
+===================================================== */
+
+.card1 {
+
+  left: 55px;
+
+  top: 45px;
+
+  transform:
+    translateZ(70px)
+    rotateY(-13deg)
+    rotateZ(-3deg);
+}
+
+
+.card2 {
+
+  right: 55px;
+
+  top: 45px;
+
+  transform:
+    translateZ(25px)
+    rotateY(13deg)
+    rotateZ(3deg);
+}
+
+
+.card3 {
+
+  left: 55px;
+
+  bottom: 45px;
+
+  transform:
+    translateZ(25px)
+    rotateY(-9deg)
+    rotateZ(2deg);
+}
+
+
+.card4 {
+
+  right: 55px;
+
+  bottom: 45px;
+
+  transform:
+    translateZ(70px)
+    rotateY(10deg)
+    rotateZ(-3deg);
+}
+
+
+.card5 {
+
+  left: 197px;
+
+  top: 170px;
+
+  transform:
+    translateZ(190px)
+    rotateY(0deg)
+    rotateZ(0deg);
+
+  z-index: 10;
+}
+
+
+.card6 {
+
+  left: 197px;
+
+  top: 345px;
+
+  transform:
+    translateZ(-50px)
+    rotateY(0deg);
+
+  opacity: .8;
+}
+
+
+/* =====================================================
+   GLOW
+===================================================== */
+
+.scene::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+
+  height: 400px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(70,255,220,.08);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   CONTROLS
+===================================================== */
+
+.controls {
+
+  position: fixed;
+
+  bottom: 7%;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 35px;
+
+  z-index: 30;
+}
+
+
+.controls span {
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  opacity: .5;
+}
+
+
+.controls button {
+
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.25);
+
+  background: rgba(255,255,255,.05);
+
+  color: white;
+
+  font-size: 26px;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+
+.controls button:hover {
+
+  background: rgba(255,255,255,.15);
+
+  transform: scale(1.1);
+}
+
+
+/* =====================================================
+   FULLSCREEN VIEWER
+===================================================== */
+
+.viewer {
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+
+  height: 100vh;
+
+  z-index: 9999;
+
+  background: rgba(0,0,0,.96);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+
+/*
+   IMPORTANT:
+
+   The image starts small, like the actual
+   clicked card, and then expands.
+*/
+
+.viewer-image-wrapper {
+
+  position: relative;
+
+  width: 125px;
+
+  height: 165px;
+
+  overflow: hidden;
+
+  transform-origin: center center;
+
+  transition:
+    width .8s cubic-bezier(.16,1,.3,1),
+    height .8s cubic-bezier(.16,1,.3,1),
+    transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+
+.viewer-image-wrapper img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+
+  opacity: 0;
+
+  transform: scale(.7);
+
+  transition:
+    opacity .35s ease,
+    transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =====================================================
+   OPEN VIEWER
+===================================================== */
+
+.viewer.active {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+
+.viewer.active .viewer-image-wrapper {
+
+  width: min(92vw, 1100px);
+
+  height: min(88vh, 850px);
+
+  transform:
+    scale(1);
+}
+
+
+.viewer.active .viewer-image-wrapper img {
+
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.viewer-close {
+
+  position: absolute;
+
+  top: 25px;
+
+  right: 30px;
+
+  width: 48px;
+
+  height: 48px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.3);
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 32px;
+
+  line-height: 40px;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  transition:
+    opacity .4s ease,
+    transform .3s ease;
+}
+
+
+.viewer.active .viewer-close {
+
+  opacity: 1;
+
+  transition-delay: .45s;
+}
+
+
+.viewer-close:hover {
+
+  transform: rotate(90deg) scale(1.1);
+
+  background: rgba(255,255,255,.18);
+}
+
+
+/* =====================================================
+   GALLERY HIDDEN WHILE VIEWING
+===================================================== */
+
+body.viewing .header,
+body.viewing .controls {
+
+  opacity: 0;
+
+  transition: opacity .3s ease;
+}
+
+
+body.viewing .gallery {
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 600px) {
+
+  .gallery {
+
+    transform: scale(.68);
+  }
+
+
+  .header {
+
+    top: 5%;
+  }
+
+
+  .controls {
+
+    bottom: 4%;
+  }
+
+
+  .viewer-image-wrapper {
+
+    width: 115px;
+
+    height: 150px;
+  }
+
+
+  .viewer.active .viewer-image-wrapper {
+
+    width: 94vw;
+
+    height: 82vh;
+  }
+
+
+  .viewer-close {
+
+    top: 15px;
+
+    right: 15px;
+  }
+
+}
